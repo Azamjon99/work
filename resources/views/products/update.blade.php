@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <body>
-<form method="post" action="{{ route('categories.update', ['id'=>$product->id]) }}" enctype="multipart/form-data">      
+<form method="post" action="{{ route('products.update', ['id'=>$product->id]) }}" enctype="multipart/form-data">      
 @csrf
 @method('PUT')
   <div class="form-group">
