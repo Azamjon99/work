@@ -10,5 +10,6 @@ interface ProductRepositoryInterface
     public function updateProducts($id, $detail);
     public function getProductById($id);
     public function getProductsById($id);
+    public function searchProducts($data);
 
 }

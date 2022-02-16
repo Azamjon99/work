@@ -36,6 +36,9 @@ class ProductRepository implements ProductRepositoryInterface
         return Product::find($id);
     }
 
-
+    public function searchProducts($data) 
+    {
+        return DB::table('products')->where('name','LIKE','%'.$data."%")->orWhere('price','LIKE','%'.$data."%")->get();
+    }
 
 }

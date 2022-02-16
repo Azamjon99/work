@@ -36,15 +36,48 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script>
+  
+   
             $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                const debounce = (func, wait, immediate)=> {
+     var timeout;
+     return function executedFunction() {
+         var context = this;
+         var args = arguments;
+             
+         var later = function() {
+         timeout = null;
+         if (!immediate) func.apply(context, args);
+         };
+ 
+         var callNow = immediate && !timeout;
+         
+         clearTimeout(timeout);
+ 
+         timeout = setTimeout(later, wait);
+         
+         if (callNow) func.apply(context, args);
+         };
+     };
+
+                $('#myInput').on('keyup',debounce(function(){
+                $value=$(this).val();
+                console.log($value);
+                $.ajax({
+                type : 'get',
+                url : '/search',
+                data:{'search':$value},
+                success:function(data){
+                $("#datas").empty();
+                $('#datas').html(data);
+                }
                 });
-            });
+                }, 2000))
             });
 </script>
+<script type="text/javascript">
+                $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
 </body>
 
 </html>

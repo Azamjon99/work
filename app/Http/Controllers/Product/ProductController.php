@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Interfaces\CategoryRepositoryInterface;
 use App\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -53,5 +54,6 @@ class ProductController extends Controller
         $product = $this->product->getProductsById($id);
         return view('products.update', compact('product', 'categories'));   
     }
-}
+
+    }
  

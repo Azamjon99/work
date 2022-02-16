@@ -3,9 +3,7 @@
 @section('content')
 
 <div class="container">
-    <p>Type something in the input field to search the table for names or description:</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <br>
+
  <table class="table">
   <thead>
     <tr>

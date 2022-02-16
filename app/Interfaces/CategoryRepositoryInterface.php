@@ -9,5 +9,6 @@ interface CategoryRepositoryInterface
     public function updateCategory($id, $details);
     public function storeCategories($details);
     public function deleteCategories($data);
+    public function searchCategories($data);
 
 }

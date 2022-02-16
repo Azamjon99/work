@@ -31,5 +31,8 @@ class CategoryRepository implements CategoryRepositoryInterface
         return  Category::whereId($id)->update($detail);
     }
 
-
+    public function searchCategories($data)
+    {
+        return DB::table('categories')->where('name','LIKE','%'.$data."%")->orWhere('description','LIKE','%'.$data."%")->get();
+    }
 }

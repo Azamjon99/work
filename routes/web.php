@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,5 @@ Route::group(['prefix'=>'products','as'=>'products.'], function(){
     Route::put('/update/{id}', [ProductController::class, 'updateProduct'] )->name('update');
     Route::delete('/delete/{id}', [ProductController::class, 'deleteProduct'] )->name('destroy');
 });
+
+Route::get('/search', [SearchController::class, 'search'] )->name('search');
